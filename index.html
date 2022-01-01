@@ -11,7 +11,9 @@
 <body>
   <script>
       function computerPlay() {
-          
+          var option = ["Rock", "Paper", "Scissors"]
+          optionToUse = option[Math.floor(Math.random() * option.length)];
+          return optionToUse;
       }
 
       console.log(computerPlay());
