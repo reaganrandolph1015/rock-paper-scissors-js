@@ -23,21 +23,19 @@
           let playerChoice = prompt("Choose rock(1), paper(2), or scissors(3)");
           if (playerChoice.toLowerCase() === "rock" || parseInt(playerChoice) === 1) {
               playerChoice = "Rock";
-          } else if (playerChoice.toLowerCase === "paper" || parseInt(playerChoice) === 2) {
+          } else if (playerChoice.toLowerCase() === "paper" || parseInt(playerChoice) === 2) {
               playerChoice = "Paper";
-          } else if (playerChoice.toLowerCase === "scissors" || parseInt(playerChoice) === 3) {
+          } else if (playerChoice.toLowerCase() === "scissors" || parseInt(playerChoice) === 3) {
               playerChoice = "Scissors";
-          } else if (playerChoice.toLowerCase() !== "rock" || "paper" || "scissors") {
+          } else if (playerChoice.toLowerCase() !== "rock" || "paper" || "scissors" || parseInt(playerChoice) !== 1 || 2 || 3) {
               alert("Invalid input, please try again.");
           }
+          return playerChoice;
         }
 
         console.log(playerPlay());
 
-        function playRound(playerSelection, computerSelection) {
-            let playerSelection = playerPlay();
-            let computerSelection = computerPlay();
-        }
+        function playRound(playerSelection, computerSelection) {}
   </script>
 </body>
 </html>
