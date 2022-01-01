@@ -11,12 +11,33 @@
 <body>
   <script>
       function computerPlay() {
-          var option = ["Rock", "Paper", "Scissors"]
-          optionToUse = option[Math.floor(Math.random() * option.length)];
-          return optionToUse;
+          var options = ["Rock", "Paper", "Scissors"]
+          optionsToUse = options[Math.floor(Math.random() * options.length)];
+          return optionsToUse;
       }
 
       console.log(computerPlay());
+
+      function playerPlay() {
+          console.log("Choose rock(1), paper(2), or scissors(3).")
+          let playerChoice = prompt("Choose rock(1), paper(2), or scissors(3)");
+          if (playerChoice.toLowerCase() === "rock" || parseInt(playerChoice) === 1) {
+              playerChoice = "Rock";
+          } else if (playerChoice.toLowerCase === "paper" || parseInt(playerChoice) === 2) {
+              playerChoice = "Paper";
+          } else if (playerChoice.toLowerCase === "scissors" || parseInt(playerChoice) === 3) {
+              playerChoice = "Scissors";
+          } else if (playerChoice.toLowerCase() !== "rock" || "paper" || "scissors") {
+              alert("Invalid input, please try again.");
+          }
+        }
+
+        console.log(playerPlay());
+
+        function playRound(playerSelection, computerSelection) {
+            let playerSelection = playerPlay();
+            let computerSelection = computerPlay();
+        }
   </script>
 </body>
 </html>
