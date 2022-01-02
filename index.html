@@ -13,7 +13,7 @@
       // Function for computer's turn (randomized)
       function computerPlay() {            
           const options = ["Rock", "Paper", "Scissors"]
-          const random = Math.floor(Math.random() * options.length);
+          const random = Math.floor(Math.random() * options.length);            // randomizer
           return options[random];
       }
 
@@ -35,41 +35,53 @@
 
         // Function to play 1 round
         function playRound(playerSelection, computerSelection) {
-            if (playerSelection === computerSelection) {
+            if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection)
                 return draw;
-            } else if (playerSelection === "rock" && computerSelection === "scissors") {
+            } else if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors") {
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection)
                 return playerWinRound;
-            } else if (playerSelection === "paper" && computerSelection === "rock") {
+            } else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock") {
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection)
                 return playerWinRound;
-            } else if (playerSelection === "scissors" && computerSelection === "paper]") {
+            } else if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "paper") {
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection)
                 return playerWinRound;
             } else {
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection)
                 return computerWinRound;
             }
         }
+
+        // Round/Game win/lose message
+        let playerWinRound = "Player wins!";
+        let computerWinRound = "Computer wins!";
+        let draw = "Draw!";
+        let playerWin = "Player wins the game!";
+        let computerWin = "Computer wins the game!";
+
         // Variables for score
-        let playerScore = 0;
-        let computerScore = 0;
-        let draw = 0;
+        let playerScore = parseInt(0);
+        let computerScore = parseInt(0);
+        let draws = 0;
 
         // Function for score
         function gameScore() {
-            let result = playRound;
-            if (result === "You win!") {
+            let result = playRound();
+            if (result === playerWinRound) {
                 playerScore++;
-            } else if (result === "You lose!") {
+            } else if (result === computerWinRound) {
                 computerScore++;
             } else {
-                draw++;
+                draws++;
             }
 
-            if (playerScore >= 3) {
-                console.log("Player wins!!")
-                return;
-            }
-            if (computerScore >= 3) {
-                console.log("Player loses!!");
-                return;
+            if (playerScore > computerScore) {
+                console.log(playerWin);
+            } else if (playerScore < computerScore) {
+                console.log(computerWin);
+            } else {
+                console.log("Tie!");
             }
         }
 
@@ -81,9 +93,7 @@
             }
         }
 
-        console.log(game());
-
-        console.log(gameScore());
+        console.log(gameScore(game()));
   </script>
 </body>
 </html>
