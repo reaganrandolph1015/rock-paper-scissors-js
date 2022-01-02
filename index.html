@@ -37,25 +37,25 @@
         function playRound(playerSelection, computerSelection) {
             if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {            // Function to decide if player win, loses, draws
                 console.log("It's a draw!");
-                return ("Your Choice: " + playerSelection + ". Computer: " + computerSelection);
+                return ("You: " + playerSelection + " | Computer: " + computerSelection);
             } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
-                console.log("You lose!");
-                return ("Your choice: " + playerSelection + ". Computer: " + computerSelection);
+                console.log("You lose! ☹");
+                return ("You: " + playerSelection + " | Computer: " + computerSelection);
             } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
-                console.log("You win!");
-                return ("Your choice: " + playerSelection + ". Computer: " + computerSelection);
+                console.log("You win! ☺");
+                return ("You: " + playerSelection + " | Computer: " + computerSelection);
             } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
-                console.log("You win!");
-                return ("Your choice: " + playerSelection + ". Computer: " + computerSelection);
+                console.log("You win! ☺");
+                return ("You: " + playerSelection + " | Computer: " + computerSelection);
             } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "paper") {
-                console.log("You lose!");
-                return ("Your choice: " + playerSelection + ". Computer: " + computerSelection);
+                console.log("You lose! ☹");
+                return ("You: " + playerSelection + " | Computer: " + computerSelection);
             } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "rock") {
-                console.log("You lose!");
-                return ("Your choice: " + playerSelection + ". Computer: " + computerSelection);
+                console.log("You lose! ☹");
+                return ("You: " + playerSelection + " | Computer: " + computerSelection);
             } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "rock") {
-                                console.log("You win!");
-                return ("Your choice: " + playerSelection + ". Computer: " + computerSelection);
+                console.log("You win! ☺");
+                return ("Your choice: " + playerSelection + " | Computer: " + computerSelection);
             } else {
                 console.log("Something went wrong!")
             }
