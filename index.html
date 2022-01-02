@@ -29,10 +29,7 @@
               alert("Invalid input, please try again.");
           }
           return playerChoice;
-        }
-
-        const playerSelection = playerPlay();                   // Variable to hold player choice
-        const computerSelection = computerPlay();               // Variable to hold computer choice      
+        }      
 
         function playRound(playerSelection, computerSelection) {
             if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {            // Function to decide if player win, loses, draws
@@ -61,7 +58,15 @@
             }
         }
 
-        console.log(playRound(playerSelection, computerSelection));
+
+
+        function game() {
+            for (let i = 0; i < 5; i++) {           // Loop function 5 times
+                console.log(playRound(playerPlay(), computerPlay()));    //call playRound function using playerPlay and computerPlay
+            }
+        }
+
+        console.log(game());
   </script>
 </body>
 </html>
