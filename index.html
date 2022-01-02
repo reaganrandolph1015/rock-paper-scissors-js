@@ -10,12 +10,14 @@
 
 <body>
   <script>
-      function computerPlay() {             // Random options for game
+      // Function for computer's turn (randomized)
+      function computerPlay() {            
           const options = ["Rock", "Paper", "Scissors"]
           const random = Math.floor(Math.random() * options.length);
           return options[random];
       }
 
+      // Function for player's turn
       function playerPlay() {
           console.log("Choose rock(1), paper(2), or scissors(3).")              
           let playerChoice = prompt("Choose rock(1), paper(2), or scissors(3)");
@@ -31,42 +33,57 @@
           return playerChoice;
         }      
 
+        // Function to play 1 round
         function playRound(playerSelection, computerSelection) {
-            if (computerSelection.toLowerCase() === playerSelection.toLowerCase()) {            // Function to decide if player win, loses, draws
-                console.log("It's a draw!");
-                return ("You: " + playerSelection + " | Computer: " + computerSelection);
-            } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "scissors") {
-                console.log("You lose! ☹");
-                return ("You: " + playerSelection + " | Computer: " + computerSelection);
-            } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "scissors") {
-                console.log("You win! ☺");
-                return ("You: " + playerSelection + " | Computer: " + computerSelection);
-            } else if (computerSelection.toLowerCase() === "rock" && playerSelection.toLowerCase() === "paper") {
-                console.log("You win! ☺");
-                return ("You: " + playerSelection + " | Computer: " + computerSelection);
-            } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "paper") {
-                console.log("You lose! ☹");
-                return ("You: " + playerSelection + " | Computer: " + computerSelection);
-            } else if (computerSelection.toLowerCase() === "paper" && playerSelection.toLowerCase() === "rock") {
-                console.log("You lose! ☹");
-                return ("You: " + playerSelection + " | Computer: " + computerSelection);
-            } else if (computerSelection.toLowerCase() === "scissors" && playerSelection.toLowerCase() === "rock") {
-                console.log("You win! ☺");
-                return ("Your choice: " + playerSelection + " | Computer: " + computerSelection);
+            if (playerSelection === computerSelection) {
+                return draw;
+            } else if (playerSelection === "rock" && computerSelection === "scissors") {
+                return playerWinRound;
+            } else if (playerSelection === "paper" && computerSelection === "rock") {
+                return playerWinRound;
+            } else if (playerSelection === "scissors" && computerSelection === "paper]") {
+                return playerWinRound;
             } else {
-                console.log("Something went wrong!")
+                return computerWinRound;
+            }
+        }
+        // Variables for score
+        let playerScore = 0;
+        let computerScore = 0;
+        let draw = 0;
+
+        // Function for score
+        function gameScore() {
+            let result = playRound;
+            if (result === "You win!") {
+                playerScore++;
+            } else if (result === "You lose!") {
+                computerScore++;
+            } else {
+                draw++;
+            }
+
+            if (playerScore >= 3) {
+                console.log("Player wins!!")
+                return;
+            }
+            if (computerScore >= 3) {
+                console.log("Player loses!!");
+                return;
             }
         }
 
 
-
+        // Plays 5 rounds 
         function game() {
-            for (let i = 0; i < 5; i++) {           // Loop function 5 times
+            for (let i = 0; i < 5; i++) {        
                 console.log(playRound(playerPlay(), computerPlay()));    //call playRound function using playerPlay and computerPlay
             }
         }
 
         console.log(game());
+
+        console.log(gameScore());
   </script>
 </body>
 </html>
