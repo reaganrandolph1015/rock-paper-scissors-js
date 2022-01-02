@@ -66,8 +66,7 @@
         let draws = 0;
 
         // Function for score
-        function gameScore() {
-            let result = playRound();
+        function gameScore(result) {
             if (result === playerWinRound) {
                 playerScore++;
             } else if (result === computerWinRound) {
@@ -76,9 +75,9 @@
                 draws++;
             }
 
-            if (playerScore > computerScore) {
+            if (playerScore >= 3) {
                 console.log(playerWin);
-            } else if (playerScore < computerScore) {
+            } else if (computerScore >= 3) {
                 console.log(computerWin);
             } else {
                 console.log("Tie!");
@@ -93,7 +92,13 @@
             }
         }
 
-        console.log(gameScore(game()));
+        console.log(game());
+
+        console.log(gameScore());
+
+        console.log(playerScore);
+        console.log(computerScore);
+        console.log(draws);
   </script>
 </body>
 </html>
