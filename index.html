@@ -67,12 +67,12 @@
         let draw = "Draw!";
         let playerWin = "Player wins the game!";
         let computerWin = "Computer wins the game!";
+        let tie = "Tie!";
 
 
 
         // Function for score
-        function gameScore(result) {
-            console.log("Choose rock(1), paper(2), or scissors(3).");
+        function gameScore() {
             if (result === playerWinRound) {
                 playerScore++;
             } else if (result === computerWinRound) {
@@ -81,12 +81,12 @@
                 draws++;
             }
 
-            if (playerScore = 3) {
+            if (playerScore > computerScore) {
                 return playerWin;
-            } else if (computerScore = 3) {
+            } else if (playerScore < computerScore) {
                 return computerWin;
             } else {
-                console.log("Tie!");
+                return tie;
             }
         }
         let playerScore = 0;
@@ -98,14 +98,13 @@
         // Plays 5 rounds 
         function game() {
             for (let i = 0; i < 5; i++) {
-        console.log(playRound(playerPlay(), computerPlay()));    //call playRound function using playerPlay and computerPlay
+            console.log(playRound(playerPlay(), computerPlay()));    //call playRound function using playerPlay and computerPlay
         }
+        return gameScore();
     }
 
         console.log(game()); 
-        console.log(playerScore);
-        console.log(computerScore)
-        console.log(draws);
+        console.log("Player Score: " + playerScore + " | Computer Score: " + computerScore + " | Ties: " + draws);
   </script>
 </body>
 </html>
