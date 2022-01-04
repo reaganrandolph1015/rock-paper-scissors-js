@@ -17,11 +17,9 @@
           return options[random];
       }
 
-
-
       // Function for player's turn
       function playerPlay() {
-          console.log("Choose rock(1), paper(2), or scissors(3).");     
+          console.log("Choose rock(1), paper(2), or scissors(3).");    
           let playerSelection = prompt("Choose rock(1), paper(2), or scissors(3)");
           if (playerSelection.toLowerCase() === "rock" || parseInt(playerSelection) === 1) {              // Let user input characters and numbers
             playerSelection = "Rock";
@@ -69,8 +67,6 @@
         let computerWin = "Computer wins the game!";
         let tie = "Tie!";
 
-
-
         // Function for score
         function gameScore() {
             if (result === playerWinRound) {
@@ -89,6 +85,8 @@
                 return tie;
             }
         }
+
+        // Variables to record score
         let playerScore = 0;
         let computerScore = 0;
         let draws = 0;
@@ -102,8 +100,9 @@
         }
         return gameScore();
     }
-
+        // Play 5 rounds of Rock, Paper, Scissors while keeping score
         console.log(game()); 
+        // Displaying score after end of rounds
         console.log("Player Score: " + playerScore + " | Computer Score: " + computerScore + " | Ties: " + draws);
   </script>
 </body>
