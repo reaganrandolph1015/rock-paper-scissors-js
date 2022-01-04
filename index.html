@@ -17,24 +17,28 @@
           return options[random];
       }
 
+
+
       // Function for player's turn
       function playerPlay() {
-          console.log("Choose rock(1), paper(2), or scissors(3).")              
-          let playerChoice = prompt("Choose rock(1), paper(2), or scissors(3)");
-          if (playerChoice.toLowerCase() === "rock" || parseInt(playerChoice) === 1) {              // Let user input characters and numbers
-              playerChoice = "Rock";
-          } else if (playerChoice.toLowerCase() === "paper" || parseInt(playerChoice) === 2) {
-              playerChoice = "Paper";
-          } else if (playerChoice.toLowerCase() === "scissors" || parseInt(playerChoice) === 3) {
-              playerChoice = "Scissors";
-          } else if (playerChoice.toLowerCase() !== "rock" || "paper" || "scissors" || parseInt(playerChoice) !== 1 || 2 || 3) {
-              alert("Invalid input, please try again.");
+          console.log("Choose rock(1), paper(2), or scissors(3).");     
+          let playerSelection = prompt("Choose rock(1), paper(2), or scissors(3)");
+          if (playerSelection.toLowerCase() === "rock" || parseInt(playerSelection) === 1) {              // Let user input characters and numbers
+            playerSelection = "Rock";
+          } else if (playerSelection.toLowerCase() === "paper" || parseInt(playerSelection) === 2) {
+            playerSelection = "Paper";
+          } else if (playerSelection.toLowerCase() === "scissors" || parseInt(playerSelection) === 3) {
+            playerSelection = "Scissors";
+          } else if (playerSelection.toLowerCase() !== "rock" || "paper" || "scissors" || parseInt(playerSelection) !== 1 || 2 || 3) {
+              alert("Invalid input, please try again.")
+              playerSelection;
           }
-          return playerChoice;
-        }      
+          return playerSelection;
+        }    
 
         // Function to play 1 round
         function playRound(playerSelection, computerSelection) {
+
             if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
                 console.log("You: " + playerSelection + " | Computer: " + computerSelection)
                 return draw;
@@ -61,12 +65,12 @@
         let computerWin = "Computer wins the game!";
 
         // Variables for score
-        let playerScore = parseInt(0);
-        let computerScore = parseInt(0);
-        let draws = 0;
+        let playerScore = 0;
+        let computerScore = 0;
 
         // Function for score
         function gameScore(result) {
+            console.log("Choose rock(1), paper(2), or scissors(3).");
             if (result === playerWinRound) {
                 playerScore++;
             } else if (result === computerWinRound) {
@@ -76,9 +80,9 @@
             }
 
             if (playerScore >= 3) {
-                console.log(playerWin);
+                return playerWin;
             } else if (computerScore >= 3) {
-                console.log(computerWin);
+                return computerWin;
             } else {
                 console.log("Tie!");
             }
@@ -87,18 +91,12 @@
 
         // Plays 5 rounds 
         function game() {
-            for (let i = 0; i < 5; i++) {        
+            for (let i = 0; i < 5; i++) {
                 console.log(playRound(playerPlay(), computerPlay()));    //call playRound function using playerPlay and computerPlay
             }
         }
 
-        console.log(game());
-
-        console.log(gameScore());
-
-        console.log(playerScore);
-        console.log(computerScore);
-        console.log(draws);
+        console.log(game()); 
   </script>
 </body>
 </html>
