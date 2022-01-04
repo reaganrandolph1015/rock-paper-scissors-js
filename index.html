@@ -38,21 +38,25 @@
 
         // Function to play 1 round
         function playRound(playerSelection, computerSelection) {
-
             if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection)
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
+                draws++;
                 return draw;
             } else if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors") {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection)
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
+                playerScore++;
                 return playerWinRound;
             } else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock") {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection)
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
+                playerScore++;
                 return playerWinRound;
             } else if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "paper") {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection)
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
+                playerScore++;
                 return playerWinRound;
             } else {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection)
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
+                computerScore++;
                 return computerWinRound;
             }
         }
@@ -64,9 +68,7 @@
         let playerWin = "Player wins the game!";
         let computerWin = "Computer wins the game!";
 
-        // Variables for score
-        let playerScore = 0;
-        let computerScore = 0;
+
 
         // Function for score
         function gameScore(result) {
@@ -79,24 +81,31 @@
                 draws++;
             }
 
-            if (playerScore >= 3) {
+            if (playerScore = 3) {
                 return playerWin;
-            } else if (computerScore >= 3) {
+            } else if (computerScore = 3) {
                 return computerWin;
             } else {
                 console.log("Tie!");
             }
         }
+        let playerScore = 0;
+        let computerScore = 0;
+        let draws = 0;
+        var result = [playerWinRound, computerWinRound, draw];
 
 
         // Plays 5 rounds 
         function game() {
             for (let i = 0; i < 5; i++) {
-                console.log(playRound(playerPlay(), computerPlay()));    //call playRound function using playerPlay and computerPlay
-            }
+        console.log(playRound(playerPlay(), computerPlay()));    //call playRound function using playerPlay and computerPlay
         }
+    }
 
         console.log(game()); 
+        console.log(playerScore);
+        console.log(computerScore)
+        console.log(draws);
   </script>
 </body>
 </html>
