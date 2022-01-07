@@ -9,6 +9,11 @@
 </head>
 
 <body>
+    <div id="container">
+        <button id="R" playerSelection = "Rock">Rock</button>
+        <button id="P">Paper</button>
+        <button id="S">Scissors</button>
+    </div>
   <script>
       // Function for computer's turn (randomized)
       function computerPlay() {            
@@ -90,7 +95,7 @@
         let playerScore = 0;
         let computerScore = 0;
         let draws = 0;
-        var result = [playerWinRound, computerWinRound, draw];
+        var result = [playerWinRound, computerWinRound, draw];          // Array for post-match results
 
 
         // Plays 5 rounds 
@@ -101,9 +106,52 @@
         return gameScore();
     }
         // Play 5 rounds of Rock, Paper, Scissors while keeping score
-        console.log(game()); 
+        // console.log(game()); 
         // Displaying score after end of rounds
-        console.log("Player Score: " + playerScore + " | Computer Score: " + computerScore + " | Ties: " + draws);
+        // console.log("Player Score: " + playerScore + " | Computer Score: " + computerScore + " | Ties: " + draws);
+
+        // DOM button selection
+
+        const buttons = document.querySelectorAll('button');
+        buttons.forEach((button) => {
+            button.addEventListener('click', (e) => {
+                function game() {
+                    let playerSelection = button.id;
+                    let computerSelection = computerPlay();
+                    return playRound(playerSelection,computerSelection);
+
+                    function computerPlay() {            
+                        const options = ["Rock", "Paper", "Scissors"]
+                        const random = Math.floor(Math.random() * options.length);            // randomizer
+                    return options[random];
+                    }
+
+                    function playRound(playerSelection, computerSelection) {
+            if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
+                draws++;
+                return draw;
+            } else if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors") {
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
+                playerScore++;
+                return playerWinRound;
+            } else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock") {
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
+                playerScore++;
+                return playerWinRound;
+            } else if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "paper") {
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
+                playerScore++;
+                return playerWinRound;
+            } else {
+                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
+                computerScore++;
+                return computerWinRound;
+            }
+        }
+                }
+            });
+        });
   </script>
 </body>
 </html>
