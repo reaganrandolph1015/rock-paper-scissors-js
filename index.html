@@ -9,11 +9,11 @@
 </head>
 
 <body>
-    <!--buttons for playRound-->
+    <!--buttons for-->
     <div id="container">
-        <button id="R" playerSelection = "Rock">Rock</button>
-        <button id="P">Paper</button>
-        <button id="S">Scissors</button>
+        <button id="Rock">Rock</button>
+        <button id="Paper">Paper</button>
+        <button id="Scissors">Scissors</button>
     </div>
   <script>
 
@@ -34,44 +34,12 @@
         // DOM button selection
         const buttons = document.querySelectorAll('button');
         buttons.forEach((button) => {
-            button.addEventListener('click', (e) => {
-                function game() {
-                    let playerSelection = button.id;
-                    let computerSelection = computerPlay();
-                    return playRound(playerSelection,computerSelection);
-
-                    function computerPlay() {            
-                        const options = ["Rock", "Paper", "Scissors"]
-                        const random = Math.floor(Math.random() * options.length);            // randomizer
-                        return options[random];
-                    }
-
-                    function playRound() {
-            if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
-                draws++;
-                return draw;
-            } else if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors") {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
-                playerScore++;
-                return playerWinRound;
-            } else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock") {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
-                playerScore++;
-                return playerWinRound;
-            } else if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "paper") {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
-                playerScore++;
-                return playerWinRound;
-            } else {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
-                computerScore++;
-                return computerWinRound;
-            }
-        }
-                }
+            button.addEventListener("click", function() {
+                let playerSelection = button.id;
+                let computerSelection = computerPlay();
+                playRound(playerSelection, computerSelection);
             });
-        });
+            });
       // Function for computer's turn (randomized)
       function computerPlay() {            
           const options = ["Rock", "Paper", "Scissors"]
