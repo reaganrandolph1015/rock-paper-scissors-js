@@ -69,23 +69,23 @@
             if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
                 console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 draws++;
-                return draw;
+                console.log(draw);
             } else if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors") {
                 console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 playerScore++;
-                return playerWinRound;
+                console.log(playerWinRound);
             } else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock") {
                 console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 playerScore++;
-                return playerWinRound;
+                console.log(playerWinRound);
             } else if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "paper") {
                 console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 playerScore++;
-                return playerWinRound;
+                console.log(playerWinRound);
             } else {
                 console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 computerScore++;
-                return computerWinRound;
+                console.log(computerWinRound);
             }
         }
 
