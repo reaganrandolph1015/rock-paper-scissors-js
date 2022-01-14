@@ -39,9 +39,12 @@
                 let computerSelection = computerPlay();
                 playRound(playerSelection, computerSelection);
 
+                // Display current score
                 content3.classList.add('score');
                 content3.textContent = "Your Score: " + playerScore + " | Computer's Score: " + computerScore + " | Draws: " + draws; 
                 containerSc.appendChild(content3);
+
+                gameScore();
             });
             });
 
@@ -133,9 +136,9 @@
 
         // Function for score
         function gameScore() {
-            if (playerScore = 5) {
+            if (playerScore === 5) {
                 return console.log(playerWin);
-            } else if (computerScore = 5) {
+            } else if (computerScore === 5) {
                 return console.log(computerWin);
             }
         }
