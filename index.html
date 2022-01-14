@@ -15,7 +15,7 @@
         <button id="Paper">Paper</button>
         <button id="Scissors">Scissors</button>
     </div>
-    <div id="results"></div>
+    <div id="containerSc"></div>
   <script>
         // Round/Game win/lose message
         let playerWinRound = "Player wins!";
@@ -41,10 +41,6 @@
             });
             });
 
-            // DOM for console.logs
-            const results = document.querySelector('#results');
-
-            const content = document.createElement('div');
       // Function for computer's turn (randomized)
       function computerPlay() {            
           const options = ["Rock", "Paper", "Scissors"]
@@ -67,36 +63,61 @@
               playerSelection;
           }
           return playerSelection;
-        }    
+        } 
+        
+        // DOM for console.logs
+        const containerSc = document.querySelector('#containerSc');
+        const content = document.createElement('div');
+        const content2 = document.createElement('div');
 
         // Function to play 1 round
         function playRound(playerSelection, computerSelection) {
-            if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
+            if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {                
                 draws++;
-                //console.log(draw);
-                content.classList.add('content');
+                // DOM method for displaying player/computer selection
+                content2.classList.add('content');
+                content2.textContent = "You: " + playerSelection + " | Computer: " + computerSelection; 
+                containerSc.appendChild(content2);
+                // Method for displaying round winner
+                content.classList.add('results');
                 content.textContent = draw; 
-                results.appendChild(content);
+                containerSc.appendChild(content);
             } else if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors") {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 playerScore++;
-                //console.log(playerWinRound);
-                content.classList.add('content');
+                content2.classList.add('content');
+                content2.textContent = "You: " + playerSelection + " | Computer: " + computerSelection; 
+                containerSc.appendChild(content2); 
+
+                content.classList.add('results');
                 content.textContent = playerWinRound; 
-                results.appendChild(content);
+                containerSc.appendChild(content);
             } else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock") {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 playerScore++;
-                console.log(playerWinRound);
+                content2.classList.add('content');
+                content2.textContent = "You: " + playerSelection + " | Computer: " + computerSelection; 
+                containerSc.appendChild(content2); 
+
+                content.classList.add('results');
+                content.textContent = playerWinRound; 
+                containerSc.appendChild(content);
             } else if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "paper") {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 playerScore++;
-                console.log(playerWinRound);
+                content2.classList.add('content');
+                content2.textContent = "You: " + playerSelection + " | Computer: " + computerSelection; 
+                containerSc.appendChild(content2); 
+
+                content.classList.add('results');
+                content.textContent = playerWinRound; 
+                containerSc.appendChild(content);
             } else {
-                console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 computerScore++;
-                console.log(computerWinRound);
+                content2.classList.add('content');
+                content2.textContent = "You: " + playerSelection + " | Computer: " + computerSelection; 
+                containerSc.appendChild(content2);
+                
+                content.classList.add('results');
+                content.textContent = computerWinRound; 
+                containerSc.appendChild(content);
             }
         }
 
