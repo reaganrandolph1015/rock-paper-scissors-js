@@ -15,8 +15,8 @@
         <button id="Paper">Paper</button>
         <button id="Scissors">Scissors</button>
     </div>
+    <div id="results"></div>
   <script>
-
         // Round/Game win/lose message
         let playerWinRound = "Player wins!";
         let computerWinRound = "Computer wins!";
@@ -40,6 +40,11 @@
                 playRound(playerSelection, computerSelection);
             });
             });
+
+            // DOM for console.logs
+            const results = document.querySelector('#results');
+
+            const content = document.createElement('div');
       // Function for computer's turn (randomized)
       function computerPlay() {            
           const options = ["Rock", "Paper", "Scissors"]
@@ -69,11 +74,17 @@
             if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {
                 console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 draws++;
-                console.log(draw);
+                //console.log(draw);
+                content.classList.add('content');
+                content.textContent = draw; 
+                results.appendChild(content);
             } else if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors") {
                 console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 playerScore++;
-                console.log(playerWinRound);
+                //console.log(playerWinRound);
+                content.classList.add('content');
+                content.textContent = playerWinRound; 
+                results.appendChild(content);
             } else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock") {
                 console.log("You: " + playerSelection + " | Computer: " + computerSelection);
                 playerScore++;
@@ -95,16 +106,12 @@
                 playerScore++;
             } else if (result === computerWinRound) {
                 computerScore++;
-            } else {
-                draws++;
-            }
+            } 
 
-            if (playerScore > computerScore) {
+            if (playerScore = 5) {
                 return playerWin;
-            } else if (playerScore < computerScore) {
+            } else if (computerScore = 5) {
                 return computerWin;
-            } else {
-                return tie;
             }
         }
 
@@ -115,6 +122,8 @@
         }
         return gameScore();
     }
+
+
         // Play 5 rounds of Rock, Paper, Scissors while keeping score
         // console.log(game()); 
         // Displaying score after end of rounds
