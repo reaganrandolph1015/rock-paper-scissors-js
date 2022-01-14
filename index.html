@@ -21,8 +21,8 @@
         let playerWinRound = "Player wins!";
         let computerWinRound = "Computer wins!";
         let draw = "Draw!";
-        let playerWin = "Player wins the game!";
-        let computerWin = "Computer wins the game!";
+        let playerWin = "Player wins the match!";
+        let computerWin = "Computer wins the match!";
         let tie = "Tie!";
 
         // Variables to record score
@@ -77,6 +77,7 @@
         const content = document.createElement('div');
         const content2 = document.createElement('div');
         const content3 = document.createElement('div');
+        const content4 = document.createElement('div');
 
         // Function to play 1 round
         function playRound(playerSelection, computerSelection) {
@@ -137,9 +138,13 @@
         // Function for score
         function gameScore() {
             if (playerScore === 5) {
-                return console.log(playerWin);
+                content4.classList.add('endMatch');
+                content4.textContent = playerWin; 
+                containerSc.appendChild(content4);
             } else if (computerScore === 5) {
-                return console.log(computerWin);
+                content4.classList.add('endMatch');
+                content4.textContent = computerWin; 
+                containerSc.appendChild(content4);
             }
         }
 
