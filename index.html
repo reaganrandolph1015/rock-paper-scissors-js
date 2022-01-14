@@ -29,7 +29,7 @@
         let playerScore = 0;
         let computerScore = 0;
         let draws = 0;
-        var result = [playerWinRound, computerWinRound, draw];          // Array for post-match results
+        //var result = [playerWinRound, computerWinRound, draw];          // Array for post-match results
 
         // DOM button selection
         const buttons = document.querySelectorAll('button');
@@ -38,6 +38,10 @@
                 let playerSelection = button.id;
                 let computerSelection = computerPlay();
                 playRound(playerSelection, computerSelection);
+
+                content3.classList.add('score');
+                content3.textContent = "Your Score: " + playerScore + " | Computer's Score: " + computerScore + " | Draws: " + draws; 
+                containerSc.appendChild(content3);
             });
             });
 
@@ -69,11 +73,11 @@
         const containerSc = document.querySelector('#containerSc');
         const content = document.createElement('div');
         const content2 = document.createElement('div');
+        const content3 = document.createElement('div');
 
         // Function to play 1 round
         function playRound(playerSelection, computerSelection) {
             if (playerSelection.toLowerCase() === computerSelection.toLowerCase()) {                
-                draws++;
                 // DOM method for displaying player/computer selection
                 content2.classList.add('content');
                 content2.textContent = "You: " + playerSelection + " | Computer: " + computerSelection; 
@@ -82,8 +86,9 @@
                 content.classList.add('results');
                 content.textContent = draw; 
                 containerSc.appendChild(content);
+                // result
+                draws++;
             } else if (playerSelection.toLowerCase() === "rock" && computerSelection.toLowerCase() === "scissors") {
-                playerScore++;
                 content2.classList.add('content');
                 content2.textContent = "You: " + playerSelection + " | Computer: " + computerSelection; 
                 containerSc.appendChild(content2); 
@@ -91,8 +96,9 @@
                 content.classList.add('results');
                 content.textContent = playerWinRound; 
                 containerSc.appendChild(content);
+
+                playerScore++;
             } else if (playerSelection.toLowerCase() === "paper" && computerSelection.toLowerCase() === "rock") {
-                playerScore++;
                 content2.classList.add('content');
                 content2.textContent = "You: " + playerSelection + " | Computer: " + computerSelection; 
                 containerSc.appendChild(content2); 
@@ -100,8 +106,9 @@
                 content.classList.add('results');
                 content.textContent = playerWinRound; 
                 containerSc.appendChild(content);
+
+                playerScore++;
             } else if (playerSelection.toLowerCase() === "scissors" && computerSelection.toLowerCase() === "paper") {
-                playerScore++;
                 content2.classList.add('content');
                 content2.textContent = "You: " + playerSelection + " | Computer: " + computerSelection; 
                 containerSc.appendChild(content2); 
@@ -109,8 +116,9 @@
                 content.classList.add('results');
                 content.textContent = playerWinRound; 
                 containerSc.appendChild(content);
+
+                playerScore++;
             } else {
-                computerScore++;
                 content2.classList.add('content');
                 content2.textContent = "You: " + playerSelection + " | Computer: " + computerSelection; 
                 containerSc.appendChild(content2);
@@ -118,28 +126,26 @@
                 content.classList.add('results');
                 content.textContent = computerWinRound; 
                 containerSc.appendChild(content);
+
+                computerScore++;
             }
         }
 
         // Function for score
         function gameScore() {
-            if (result === playerWinRound) {
-                playerScore++;
-            } else if (result === computerWinRound) {
-                computerScore++;
-            } 
-
             if (playerScore = 5) {
-                return playerWin;
+                return console.log(playerWin);
             } else if (computerScore = 5) {
-                return computerWin;
+                return console.log(computerWin);
             }
         }
 
         // Plays 5 rounds 
         function game() {
-            for (let i = 0; i < 5; i++) {
-            console.log(playRound(playerPlay(), computerPlay()));    //call playRound function using playerPlay and computerPlay
+            for (let i = 0; i < 1000; i++) {
+            playRound(playerSelection, computerSelection);    //call playRound function using playerPlay and computerPlay
+            playerScore;
+            computerScore;
         }
         return gameScore();
     }
